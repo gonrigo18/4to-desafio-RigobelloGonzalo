@@ -1,0 +1,50 @@
+[
+  {
+    "id": 2,
+    "title": "Notebook",
+    "price": 299999,
+    "thumbnail": ""
+  },
+  {
+    "id": 4,
+    "title": "SmartTV",
+    "price": 89999,
+    "thumbnail": ""
+  },
+  {
+    "id": 5,
+    "title": "SmartTV",
+    "price": 89999,
+    "thumbnail": ""
+  },
+  {
+    "id": 6,
+    "title": "SmartTV",
+    "price": 89999,
+    "thumbnail": ""
+  },
+  {
+    "id": 7,
+    "title": "SmartTV",
+    "price": 89999,
+    "thumbnail": ""
+  },
+  {
+    "id": 8,
+    "title": "Auriculares",
+    "price": 23599,
+    "thumbnail": ""
+  },
+  {
+    "id": 9,
+    "title": "Auriculares",
+    "price": 23599,
+    "thumbnail": ""
+  },
+  {
+    "id": 10,
+    "title": "Microfono",
+    "price": 7599,
+    "thumbnail": ""
+  }
+]
