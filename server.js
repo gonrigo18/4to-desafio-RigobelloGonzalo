@@ -13,22 +13,17 @@ let allProducts = [];
 
 routerProducts.get('/', (req, res) => {
     res.send(allProducts);
-})
+});
 
 routerProducts.get('/:id', (req, res) => {
     const id = req.params.id;
     res.send(allProducts[id]);
-})
+});
 
 routerProducts.post('/', (req, res) => {
-    res.send(allProducts.push({
-
-        "id": 5,
-        "title": "SmartTV",
-        "price": 89999,
-        "thumbnail": ""
-
-    }));
+    const {body} = req;
+    allProducts.push(body);
+    res.sed(body);
 });
 
 
