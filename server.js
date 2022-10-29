@@ -27,17 +27,17 @@ routerProducts.post ('/', (req,res)=>{
 });
 
 app.put('/api/products/:id', (req, res) => {
-    const { letter } = req.body;
+    const { product } = req.body;
     const { id } = req.params;
-    const beforeLetter = letter[parseInt(id) - 1];
-    letter[parseInt(id) - 1] = letter;
-    res.send({ before: beforeLetter, new: letter });
+    const beforeProduct = allProducts[parseInt(id) - 1];
+    product[parseInt(id) - 1] = product;
+    res.send({ before: beforeProduct, new: product });
   });
   
   app.delete('/api/products/:id', (req, res) => {
     const { id } = req.params;
-    const letter = letter.splice(parseInt(id) - 1, 1);
-    res.send({ deleted: letter});
+    const product = allProducts.splice(parseInt(id) - 1, 1);
+    res.send({ deleted: product});
   });
 
 
