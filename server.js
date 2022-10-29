@@ -7,7 +7,6 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const routerProducts = new Router();
-
 routerProducts.use(express.json());
 
 const allProducts = [];
