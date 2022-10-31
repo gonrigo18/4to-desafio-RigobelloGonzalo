@@ -1,6 +1,10 @@
-const express = require('express')
+
+const express = require('express');
 const { Router } = express;
 const app = express();
+const Container = require('./container');
+const products = new Container('./products.txt');
+
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -9,39 +13,64 @@ app.use(express.urlencoded({ extended: true }));
 const routerProducts = new Router();
 routerProducts.use(express.json());
 
-const allProducts = [];
 
-routerProducts.get('/', (req, res) => {
-    res.send(allProducts);
-})
-
-routerProducts.get('/:id', (req, res) => {
-    const id = req.params.id;
-    res.send(allProducts[id]);
+routerProducts.get('/', async (req, res) => {
+    try {
+        const product = await products.getAll();
+        res.send(product);
+    } catch (err) {
+        console.log(err);
+    }
 });
 
-routerProducts.post ('/', (req,res)=>{
-    const {body} = req;
-    allProducts.push(body);
-    res.send(body);
+routerProducts.get('/:id', async (req, res) => {
+    try {
+        const product = await products.getById(parseInt(req.params.id));
+        if (!product) {
+            res.send('{error:  producto no encontrado }');
+        }
+        else {
+            res.json(product);
+        }
+    }
+    catch (err) {
+        console.log(err);
+    }
 });
 
-app.put('/api/products/:id', (req, res) => {
-    const { product } = req.body;
-    const { id } = req.params;
-    const beforeProduct = allProducts[parseInt(id) - 1];
-    product[parseInt(id) - 1] = product;
-    res.send({ before: beforeProduct, new: product });
-  });
-  
-  app.delete('/api/products/:id', (req, res) => {
-    const { id } = req.params;
-    const product = allProducts.splice(parseInt(id) - 1, 1);
-    res.send({ deleted: product});
-  });
+routerProducts.post('/', async (req, res) => {
+    try {
+        const { body } = req;
+        await products.save(body);
+        res.send(body);
+    } catch (err) {
+        console.log(err);
+    }
+});
+routerProducts.put('/:id', async (req, res) => {
+    try {
+        const {id} = req.params;
+        const { body } = req;
+        const updated = await products.update(body,parseInt(id));
+        console.log(updated)
+        res.send(updated);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+routerProducts.delete('/:id', async (req, res) => {
+    try{
+        const {id} = req.params;
+        const deleteProduct = await products.deleteById(parseInt(id));
+        res.send(deleteProduct);
+    } catch (err){
+        console.log (err);
+    }
+});
 
 
-app.use('/api/products', routerProducts);
+app.use('/api/products/', routerProducts);
 
 const port = 8080;
 const server = app.listen(port, () => {
