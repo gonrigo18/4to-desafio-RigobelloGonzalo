@@ -23,6 +23,16 @@ routerProducts.get('/', async (req, res) => {
     }
 });
 
+routerProducts.delete('/', async (req , res) => {
+    try{
+        const product = await products.deleteAll();
+        res.send(product);
+    }
+    catch (err){
+        console.log(err)
+    }
+})
+
 routerProducts.get('/:id', async (req, res) => {
     try {
         const product = await products.getById(parseInt(req.params.id));

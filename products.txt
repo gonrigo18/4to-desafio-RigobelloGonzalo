@@ -1,26 +1,26 @@
 [
   {
     "id": 3,
-    "title": "teclado",
-    "price": 421424,
-    "thumbnail": ""
+    "title": "Plato",
+    "price": 333,
+    "thumbnail": "ggggg"
   },
   {
     "id": 2,
-    "title": "teclado",
-    "price": 421424,
-    "thumbnail": ""
-  },
-  {
-    "id": 4,
     "title": "mouse",
     "price": 13124,
     "thumbnail": "asfasf"
   },
   {
-    "id": 4,
+    "id": 1,
     "title": "monitor",
     "price": 13124,
     "thumbnail": "asfasf"
+  },
+  {
+    "id": 4,
+    "title": "tenedor",
+    "price": 333,
+    "thumbnail": "ggggg"
   }
 ]

@@ -48,10 +48,20 @@ class Container {
     async save(product) {
         try {
             const products = await this.getAll();
-            const lastItem = products.length;
-            const newProduct = { id: (lastItem +1), title: product.title, price: product.price, thumbnail: product.thumbnail }
-            await products.push(newProduct)
-            await fs.writeFile(`./products.txt`, JSON.stringify(products, null, 2))
+            if (products.length == 0) {
+                const firstProduct = { id: 1, title: product.title, price: product.price, thumbnail: product.thumbnail }
+                await products.push(firstProduct)
+                await fs.writeFile(`./products.txt`, JSON.stringify(products, null, 2))
+            } else if (products.length == 1) {
+                const secondProduct = { id: 1 + 1, title: product.title, price: product.price, thumbnail: product.thumbnail }
+                await products.push(secondProduct)
+                await fs.writeFile(`./products.txt`, JSON.stringify(products, null, 2))
+            } else {
+                const productMayor = products.sort((b, a) => a.id - b.id)[0];
+                const newProduct = { id: (productMayor.id + 1), title: product.title, price: product.price, thumbnail: product.thumbnail }
+                await products.push(newProduct)
+                await fs.writeFile(`./products.txt`, JSON.stringify(products, null, 2))
+            }
         } catch (err) {
             console.log(err)
         }
