@@ -8,7 +8,7 @@ class Container {
 
     async getAll() {
         try {
-            const content = JSON.parse(await fs.readFile(`./${this.route}`, 'utf-8'))
+            const content = JSON.parse(await fs.readFile(`./products.txt`, 'utf-8'))
             return content
         } catch (err) {
             console.log(err)
@@ -17,7 +17,7 @@ class Container {
     }
     async deleteAll() {
         try {
-            await fs.unlink(`./${this.route}`)
+            await fs.unlink(`./products.txt`)
             console.log("Archive deleted successfully")
         } catch (err) {
             console.log(err)
@@ -27,7 +27,7 @@ class Container {
         try {
             const content = await this.getAll()
             const filter = content.filter(e => e.id !== id)
-            await fs.writeFile(`./${this.route}`, JSON.stringify(filter, null, 2))
+            await fs.writeFile(`./products.txt`, JSON.stringify(filter, null, 2))
             return "Successfully deleted"
         } catch (err) {
             console.log(err)
@@ -36,7 +36,7 @@ class Container {
 
     async getById(id) {
         try {
-            const content = JSON.parse(await fs.readFile(`./${this.route}`, 'utf-8'))
+            const content = JSON.parse(await fs.readFile(`./products.txt`, 'utf-8'))
             const find = content.find(e => e.id === id)
             return find
         }
@@ -47,10 +47,9 @@ class Container {
 
     async save(product) {
         try {
-            const products = await this.getAll()
-            const lastItem = products[products.length - 1]
-            const id = lastItem.id + 1;
-            const newProduct = { id: id, title: product.title, price: product.price, thumbnail: product.thumbnail }
+            const products = await this.getAll();
+            const lastItem = products.length;
+            const newProduct = { id: (lastItem +1), title: product.title, price: product.price, thumbnail: product.thumbnail }
             await products.push(newProduct)
             await fs.writeFile(`./products.txt`, JSON.stringify(products, null, 2))
         } catch (err) {
@@ -62,10 +61,11 @@ class Container {
 
     async update(product, id) {
         try {
+            await this.deleteById(id)
+            console.log(id);
             const products = await this.getAll()
             const updatedProduct = { id: id, title: product.title, price: product.price, thumbnail: product.thumbnail }
-            console.log(updatedProduct)
-            await products.push(updatedProduct)
+            products.push(updatedProduct)
             await fs.writeFile(`./products.txt`, JSON.stringify(products, null, 2))
         } catch (err) {
             console.log(err)

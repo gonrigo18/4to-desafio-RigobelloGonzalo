@@ -1,96 +1,26 @@
 [
   {
     "id": 3,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": 3,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": 3,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": "[object Object]1",
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": "[object Object]1",
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": null,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": 1,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
+    "title": "teclado",
+    "price": 421424,
+    "thumbnail": ""
   },
   {
     "id": 2,
-    "title": "ggggg",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": 3,
-    "title": "ggggg",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": 1,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": 3,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": 3,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "id": 3,
-    "title": "sfhsdhdshhd",
-    "price": "12333",
-    "thumbnail": "dgsdg"
-  },
-  {
-    "title": "Ventilador",
-    "price": 1,
+    "title": "teclado",
+    "price": 421424,
     "thumbnail": ""
   },
   {
-    "title": "Ventilador",
-    "price": 1,
-    "thumbnail": ""
+    "id": 4,
+    "title": "mouse",
+    "price": 13124,
+    "thumbnail": "asfasf"
   },
   {
-    "id": 3,
-    "title": "Ventilador",
-    "price": 1,
-    "thumbnail": ""
+    "id": 4,
+    "title": "monitor",
+    "price": 13124,
+    "thumbnail": "asfasf"
   }
 ]
